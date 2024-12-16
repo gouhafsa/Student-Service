@@ -1,0 +1,21 @@
+type Query {
+    getStudentByDateNaissance(date: String): [Student]
+}
+
+type Mutation {
+    saveStudent(student: StudentInput): Student
+}
+
+type Student {
+    idStudent: ID
+    name: String
+    email: String
+    dateNaissance: String
+}
+
+input StudentInput {
+    name: String
+    email: String
+    dateNaissance: String
+}
+
