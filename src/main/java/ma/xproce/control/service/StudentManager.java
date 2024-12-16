@@ -8,27 +8,23 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 import java.util.List;
 
-@Service
-public class StudentManager implements StudentService {
-    private final StudentRepository studentRepository;
+    @Service
+    public class StudentManager implements StudentService {
+        @Autowired
+        private StudentRepository studentRepository;
 
-    @Autowired
-    public StudentManager(StudentRepository studentRepository) {
-        this.studentRepository = studentRepository;
-    }
+        @Override
+        public List<Student> getStudentsByDateNaissance(LocalDate dateNaissance) {
+            return studentRepository.findByDateNaissance(dateNaissance);
+        }
 
-    @Override
-    public List<Student> getAllStudents() {
-        return studentRepository.findAll();
-    }
+        @Override
+        public Student saveStudent(Student student) {
+            return studentRepository.save(student);
+        }
 
-    @Override
-    public List<Student> getStudentsByDateNaissance(LocalDate date) {
-        return studentRepository.findByDateNaissance(date);
+        @Override
+        public List<Student> getAllStudents() {
+            return studentRepository.findAll();
+        }
     }
-
-    @Override
-    public Student saveStudent(Student student) {
-        return studentRepository.save(student);
-    }
-}

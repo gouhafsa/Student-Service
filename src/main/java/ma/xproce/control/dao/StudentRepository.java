@@ -7,5 +7,5 @@ import java.time.LocalDate;
 import java.util.List;
 
 public interface StudentRepository extends JpaRepository<Student, Long> {
-    List<Student> findByDateNaissance(LocalDate date);
+    List<Student> findByDateNaissance(LocalDate dateNaissance);
 }

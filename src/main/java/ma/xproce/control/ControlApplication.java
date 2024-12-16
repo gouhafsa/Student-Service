@@ -16,12 +16,14 @@ public class ControlApplication {
         SpringApplication.run(ControlApplication.class, args);
     }
     @Bean
-    CommandLineRunner start(StudentService studentService) {
+    CommandLineRunner initDatabase(StudentService studentService) {
         return args -> {
-            studentService.saveStudent(new Student(null, "Hafsa", "Hafsa@gmail.com", LocalDate.of(2000, 1, 15)));
-            studentService.saveStudent(new Student(null, "Ali", "Ali@gmail.com", LocalDate.of(1998, 6, 20)));
-            studentService.saveStudent(new Student(null, "Yasmine", "Yasmine@gmail.com", LocalDate.of(2001, 3, 10)));
-            studentService.saveStudent(new Student(null, "Meriem", "Meriem@gmail.com", LocalDate.of(1999, 8, 25)));
+            studentService.saveStudent(new Student(null, "Hafsa", "hafsa@gmail.com", LocalDate.of(2000, 1, 15)));
+            studentService.saveStudent(new Student(null, "Yasmine", "yasmine@gmail.com", LocalDate.of(1998, 6, 20)));
+            studentService.saveStudent(new Student(null, "Mohamed", "mohamed@gmail.com", LocalDate.of(2001, 3, 10)));
+            studentService.saveStudent(new Student(null, "Meriem", "meriem@gmail.com", LocalDate.of(1999, 8, 25)));
+
+            System.out.println("Étudiants ajoutés avec succès dans la base de données.");
         };
     }
 

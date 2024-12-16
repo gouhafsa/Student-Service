@@ -11,9 +11,9 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDate;
 
 @Entity
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
 public class Student {
 
     @Id
@@ -25,8 +25,4 @@ public class Student {
     private String email;
 
     private LocalDate dateNaissance;
-
-
-
 }
-

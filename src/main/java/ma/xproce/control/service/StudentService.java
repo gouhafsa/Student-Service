@@ -6,9 +6,12 @@ import java.time.LocalDate;
 import java.util.List;
 
 public interface StudentService {
-    List<Student> getAllStudents();
-
-    List<Student> getStudentsByDateNaissance(LocalDate date);
-
+    // Méthode pour sauvegarder un étudiant
     Student saveStudent(Student student);
+
+    // Méthode pour récupérer les étudiants par date de naissance
+    List<Student> getStudentsByDateNaissance(LocalDate dateNaissance);
+
+    // Méthode pour récupérer tous les étudiants
+    List<Student> getAllStudents();
 }
